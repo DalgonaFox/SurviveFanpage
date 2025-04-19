@@ -1,0 +1,678 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Bebas Neue', 'Inter';
+    width: 100%;
+    align-items: center;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 96px;
+    text-align: center;
+    font-weight: 400;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: space-around;
+    display: flex;
+    color: white;
+    align-items: center;
+    font-size: 1.5rem;
+    position: fixed;
+    width: 100%;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    z-index: 1;
+}
+
+header ul {
+    display: flex;
+    width: 50%;
+    list-style-type: none;
+    justify-content: space-between;
+}
+
+header a, .headerlinks i {
+    transition: transform 0.5s;
+}
+
+header a:hover, .headerlinks i:hover {
+    color: #11AEFC;
+    transform: scale(1.1);
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+header i {
+    height: 20px;
+    color: white;
+}
+
+.headerlinks {
+    display: flex;
+    gap: 10px;
+}
+
+.headerlinks {
+    display: flex;
+    gap: 10px;
+}
+
+p {
+    font-family: 'Inter';
+}
+
+.cover {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(02, 29, 76, 0.5), rgb(0, 0, 0)), url(../imagens/cover.jpeg);
+    background-position: center;
+    height: 1024px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.titulo {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 20px;
+}
+
+.titulo h1 {
+    width: -webkit-fill-available;
+}
+
+.cover h1 {
+    font-size: 128px;
+}
+
+.cover h2 {
+    font-size: 64px;
+    font-weight: 400;
+}
+
+.quotecard {
+    display: flex;
+    color: white;
+    align-items: stretch;
+    height: 20rem;
+}
+
+.quoteimg {
+    width: 20%;
+}
+
+.quoteimg img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.quotetxt {
+    width: 80%;
+    background: linear-gradient(to right, #003BBC, black);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.quotetxt p {
+    font-size: 20px;
+    margin: 0;
+}
+
+hr {
+    display: inline-block;
+    width: 100%;
+}
+
+.container {
+    background: linear-gradient(to bottom, black, #022976, #11AEFC);
+    color: white;
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.membrolinha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.membro {
+    width: 35%;
+    border-radius: 10px;
+    color: white;
+    align-items: stretch;
+    height: 40rem;
+    overflow: hidden;
+}
+
+.membroimg {
+    height: 50%;
+    overflow: hidden;
+}
+
+.membroimg img {
+    flex-grow: 1;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: transform .2s;
+}
+
+.membroimg img:hover, .showsimg img:hover {
+    transform: scale(1.1);
+}
+
+.membrotxt {
+    background-color: #0547D8;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.membrotxt h1 {
+    font-size: 4rem;
+}
+
+.membrotxt h2 {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+
+.container p {
+    width: 75%;
+}
+
+.sectionmargin {
+    margin-top: 80px;
+}
+
+.videos {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #003BBC;
+    width: 100%;
+    gap: 20px;
+}
+
+.videos .titulo {
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+.videos .titulo h1 {
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+.frames {
+    display: flex;
+    gap: 30px;
+    height: 300px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.musicacoluna {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.videos iframe {
+    width: 30%;
+    height: 100%;
+}
+
+.audios {
+    display: flex;
+}
+
+td {
+    font-size: 32px;
+    line-height: 1.85;
+    text-align: left;
+    vertical-align: middle;
+    color: white;
+    padding: 0.5rem;
+}
+
+td a .fa-youtube-play, .albumbotoes .fa-youtube-play, td a .fa-spotify, .albumbotoes .fa-spotify, .fa-external-link-square, .fa-ticket {
+    transition: transform 0.5s;
+}
+
+
+td a .fa-youtube-play:hover, .albumbotoes .fa-youtube-play:hover, td a .fa-spotify:hover, .albumbotoes .fa-spotify:hover, .fa-external-link-square:hover, .fa-ticket:hover {
+    transform: scale(1.2);
+}
+
+td a .fa-youtube-play, .albumbotoes .fa-youtube-play {
+    color: #B91E1E;
+}
+
+td a .fa-spotify, .albumbotoes .fa-spotify {
+    color: #05D253;
+}
+
+td a .fa-spotify, td a .fa-youtube-play {
+    font-size: 2.5rem;
+}
+
+.audiomusica {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+.controles {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.album {
+    width: 35%;
+}
+
+.albumcards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+}
+
+.albumcard {
+    width: 100%;
+    display: flex;
+    height: 12rem;
+    margin: 10px;
+}
+
+.albumimg img {
+    flex-grow: 1;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.albuminfo {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.albumbotoes {
+    display: flex;
+    font-size: 2rem;
+    padding: 10px 20px;
+    gap: 10px;
+}
+
+.albumbotoes button, form button {
+    border-radius: 10px;
+    background-color: #0547D8;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+}
+
+audio {
+    width: 60%px;
+    height: 50px;
+}
+
+.album h1, .popular h1{
+    font-size: 48px;
+    text-align: left;
+}
+
+.albumtxt h6 {
+    font-size: 20px;
+    font-family: 'Inter';
+}
+
+.albumtxt li {
+    font-size: 12px;
+    font-family: 'Inter';
+}
+
+.albumtxt {
+    text-align: left;
+    padding: 10px 20px;
+}
+
+.albumtxt p {
+    font-size: 14px;
+    gap: 10px;
+}
+
+.albumtxt ol {
+    padding-left: 0;
+    margin-left: 0;
+    list-style-position: inside;
+}
+
+.shows, .msg {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+}
+
+.showsimg {
+    width: 30%;
+    overflow: hidden;
+}
+
+.showsimg img {
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.showstabela {
+    width: 70%;
+    text-align: left;
+}
+
+.showstabela table {
+    border-spacing: 0;
+    border: 1px solid #022976;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.showstabela th {
+    font-size: 2rem;
+    font-weight: 400;
+    padding: 0.5rem;
+    background-color: #003BBC;
+    border: 1px solid #022976;
+}
+
+.showstabela td {
+    font-family: 'Inter';
+    font-size: 1rem;
+    font-weight: 400;
+    border: 1px solid #022976;
+    background-color: white;
+    color: black;
+}
+
+.msgform, form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-family: 'Inter';
+    height: 100%;
+    gap: 10px;
+}
+
+input, textarea {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+form button {
+    width: fit-content;
+    align-self: flex-end;
+    justify-content: flex-end;
+    padding: 1rem;
+    font-size: 16px;
+}
+
+.msg {
+    gap: 20px;
+}
+
+.msgform {
+    width: 70%;
+}
+
+.msgembed {
+    width: 30%;
+}
+
+.msgform p {
+    width: 100%;
+}
+
+input::placeholder, textarea::placeholder {
+    font-family: 'Inter';
+}
+
+footer {
+    background-image: linear-gradient(to right, #022872, #0543CB);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 0.5rem;
+}
+
+.footerlogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footerlogo img {
+    width: 30%;
+}
+.footerlogo h1 {
+    font-size: 44px;
+}
+.footerlogo h2 {
+    font-size: 30px;
+    font-weight: 400;
+}
+.footericon {
+    font-size: 2rem;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+td a {
+    color: black;
+    font-size: 2rem;
+    text-align: center;
+}
+
+button {
+    transition: transform 0.5s;
+}
+
+button:hover {
+    background-color: #002C8E;
+    transform: scale(1.1);
+}
+
+.videosmobile {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        font-size: 1.2rem;
+    }
+    header ul {
+        gap: 10px;
+    }
+    .cover h1 {
+        font-size: 4rem;
+    }
+    .cover h2 {
+        font-size: 2rem;
+    }
+    .quotetxt p{
+        width: 100%;
+        font-size: 1rem;
+    }
+    .quoteimg {
+        width: 40%;
+    }
+    .titulo h1 {
+        font-size: 3rem;
+    }
+    .container p{
+        font-size: 0.8rem;
+    }
+    .membrolinha {
+        flex-direction: column;
+    }
+    .membro {
+        width: 90%;
+        height: fit-content;
+    }
+    .membrotxt h1 {
+        font-size: 3rem;
+    }
+    .membrotxt h2 {
+        font-size: 2rem;
+    }
+    .videos {
+        display: none;
+    }
+    .videosmobile {
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background-color: #003BBC;
+        width: 100%;
+        gap: 20px;
+    }
+    .videosmobile .frames {
+        width: 100%;
+        justify-content: center;
+    }
+    .videosmobile iframe {
+        width: 90%;
+        height: 100%;
+    }
+    .videosmobile h1 {
+        font-size: 2rem;
+    }
+    .musicacoluna {
+        flex-direction: column;
+    }
+    .album {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .album h1, .popular h1 {
+        text-align: center;
+        font-size: 2.3rem;
+    }
+    .albumcard {
+        justify-content: center;
+    }
+    td {
+        font-size: 1.5rem;
+    }
+    table {
+        width: 90%;
+    }
+    td a {
+        font-size: 1rem;
+    }
+    .popular {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .shows {
+        flex-direction: column;
+        height: 60rem;
+        width: 90%;
+    }
+    .showstabela, .showsimg {
+        width: 100%;
+    }
+    .showstabela table{
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 0;
+        overflow: hidden;
+    }
+    .showsimg{
+        height: 20%;
+        overflow: hidden;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    .showsimg img{
+        height: 100%;
+        border-top-right-radius: 0;
+    }
+    .showstabela td {
+        font-size: 0.8rem;
+    }
+    .showstabela th {
+        font-size: 1.5rem;
+    }
+    .msg {
+        flex-direction: column;
+    }
+    .msgform, .msgembed {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    header ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .audio {
+        
+    }
+}
