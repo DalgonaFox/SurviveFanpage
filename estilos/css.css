@@ -14,13 +14,42 @@ body {
     z-index: 1;
 }
 
-h1 {
-    font-size: 96px;
-    text-align: center;
+h1, h2, h3, h4, h5 {
     font-weight: 400;
 }
 
-header {
+.titulo h1, .titulo h2, .titulo h4 {
+    width: -webkit-fill-available;
+}
+
+h1 {
+    font-size: 8rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 6rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 4rem;
+}
+
+h4 {
+    font-size: 2rem;
+}
+
+h5 {
+    font-size: 1.5rem;
+}
+
+h6 {
+    font-size: 1.25rem;
+    font-family: 'Inter';
+}
+
+nav {
     background-color: rgba(0, 0, 0, 0.7);
     justify-content: space-around;
     display: flex;
@@ -35,18 +64,31 @@ header {
     z-index: 1;
 }
 
-header ul {
+nav img {
+    transition: transform 1s;
+}
+
+nav img:hover {
+    transform: scale(1.2);
+}
+
+nav ul {
     display: flex;
     width: 50%;
     list-style-type: none;
     justify-content: space-between;
 }
 
-header a, .headerlinks i {
+.socialmedia {
+    display: flex;
+    gap: 10px;
+}
+
+nav li, nav a, .socialmedia i {
     transition: transform 0.5s;
 }
 
-header a:hover, .headerlinks i:hover {
+nav a:hover, nav li:hover, .socialmedia i:hover {
     color: #11AEFC;
     transform: scale(1.1);
 }
@@ -56,19 +98,9 @@ a {
     text-decoration: none;
 }
 
-header i {
+nav i {
     height: 20px;
     color: white;
-}
-
-.headerlinks {
-    display: flex;
-    gap: 10px;
-}
-
-.headerlinks {
-    display: flex;
-    gap: 10px;
 }
 
 p {
@@ -91,19 +123,6 @@ p {
     width: 100%;
     align-items: center;
     gap: 20px;
-}
-
-.titulo h1 {
-    width: -webkit-fill-available;
-}
-
-.cover h1 {
-    font-size: 128px;
-}
-
-.cover h2 {
-    font-size: 64px;
-    font-weight: 400;
 }
 
 .quotecard {
@@ -152,11 +171,12 @@ hr {
     padding-bottom: 80px;
 }
 
-.membrolinha {
+.membros {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 4rem;
+    flex-wrap: wrap;
 }
 
 .membro {
@@ -196,28 +216,16 @@ hr {
     padding-bottom: 1.5rem;
 }
 
-.membrotxt h1 {
-    font-size: 4rem;
-}
-
-.membrotxt h2 {
-    font-size: 2rem;
-    font-weight: 400;
-}
-
-.section {
+section {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 80px;
+    margin-top: 80px;
 }
 
 .container p {
     width: 75%;
-}
-
-.sectionmargin {
-    margin-top: 80px;
 }
 
 .videos {
@@ -228,16 +236,6 @@ hr {
     background-color: #003BBC;
     width: 100%;
     gap: 20px;
-}
-
-.videos .titulo {
-    font-weight: 400;
-    font-size: 2rem;
-}
-
-.videos .titulo h1 {
-    font-weight: 400;
-    font-size: 2rem;
 }
 
 .frames {
@@ -297,7 +295,7 @@ td a .fa-spotify, td a .fa-youtube-play {
     display: flex;
     align-items: center;
     height: 100%;
-  }
+}
 
 .controles {
     display: flex;
@@ -307,6 +305,11 @@ td a .fa-spotify, td a .fa-youtube-play {
 
 .album {
     width: 35%;
+}
+
+.album h3, .popular h3{
+    width: 100%;
+    text-align: left;
 }
 
 .albumcards {
@@ -353,18 +356,8 @@ td a .fa-spotify, td a .fa-youtube-play {
 }
 
 audio {
-    width: 60%px;
+    width: 300px;
     height: 50px;
-}
-
-.album h1, .popular h1{
-    font-size: 48px;
-    text-align: left;
-}
-
-.albumtxt h6 {
-    font-size: 20px;
-    font-family: 'Inter';
 }
 
 .albumtxt li {
@@ -503,13 +496,7 @@ footer {
 .footerlogo img {
     width: 30%;
 }
-.footerlogo h1 {
-    font-size: 44px;
-}
-.footerlogo h2 {
-    font-size: 30px;
-    font-weight: 400;
-}
+
 .footericon {
     font-size: 2rem;
 }
@@ -538,10 +525,10 @@ button:hover {
 }
 
 @media screen and (max-width: 768px) {
-    header {
+    nav {
         font-size: 1.2rem;
     }
-    header ul {
+    nav ul {
         gap: 10px;
     }
     .cover h1 {
@@ -667,12 +654,9 @@ button:hover {
 }
 
 @media screen and (max-width: 630px) {
-    header ul {
+    nav ul {
         display: flex;
         flex-direction: column;
         text-align: center;
-    }
-    .audio {
-        
     }
 }
