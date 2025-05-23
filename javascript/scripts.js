@@ -16,10 +16,10 @@ function fecharMenu() {
 function EnviaForm() {
     inputs.forEach(input => {
         if (input.value != '' && textarea.value != '') {
-        mensagem.innerHTML = 'Formulário enviado com sucesso!'
-    } else {
-        mensagem.innerHTML = 'Preencha o formulário antes de enviar...'
-    }
+            mensagem.innerHTML = 'Formulário enviado com sucesso!'
+        } else {
+            mensagem.innerHTML = 'Preencha o formulário antes de enviar...'
+        }
     })
     dialog.showModal()
     dialog.style.display = 'flex'
@@ -41,14 +41,16 @@ const appearOptions = {
     threshold: 0.01
 }
 
-const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {entries.forEach(entry => {
-    if (!entry.isIntersecting) {
-        return
-    } else {
-        entry.target.classList.add('appear')
-        appearOnScroll.unobserve(entry.target)
-    }
-})}, appearOptions);
+const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+            return
+        } else {
+            entry.target.classList.add('appear')
+            appearOnScroll.unobserve(entry.target)
+        }
+    })
+}, appearOptions);
 
 faders.forEach(fader => {
     appearOnScroll.observe(fader)

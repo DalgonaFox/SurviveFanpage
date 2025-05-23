@@ -545,7 +545,7 @@ button:hover {
     width: 70%;
     background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
-    box-shadow: -10px o 10px rgba(0, 0, 0, 0.1);
+    box-shadow: -10px 10px rgba(0, 0, 0, 0.1);
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
@@ -566,7 +566,7 @@ button:hover {
 .grid {
     display: grid;
     grid-template-columns: 2.8fr 4fr 1fr 1fr;
-    grid-template-rows: repeat(1fr 10);
+    grid-template-rows: repeat(10 1fr);
     width: 100%;
     justify-content: center;
     align-items: center;
