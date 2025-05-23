@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    -ms-high-contrast: none !important;
 }
 
 :root {
