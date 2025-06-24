@@ -39,11 +39,11 @@ h2 {
 }
 
 h3 {
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 h4 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 h5 {
@@ -151,7 +151,7 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 .quotetxt p {
@@ -202,6 +202,16 @@ hr {
     overflow: hidden;
 }
 
+.membrotitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.membrotitle div {
+    display: flex;
+    gap: 10px;
+}
+
 .membroimg {
     height: 50%;
     overflow: hidden;
@@ -225,9 +235,22 @@ hr {
     height: 50%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    align-items: left;
+    padding: 1.5rem;
+    text-align: left;
+    gap: 10px;
+}
+
+.membrotxt p {
+    width: 100% !important;
+    font-size: 0.9rem;
+}
+
+.membrotxt button {
+    width: 30%;
+    background-color: var(--borda);
+    align-self: end;
+    justify-self: flex-end;
 }
 
 section {
@@ -244,20 +267,55 @@ section {
 
 .videos {
     display: flex;
-    flex-direction: column;
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: var(--fundo);
     width: 100%;
     gap: 20px;
+    align-items: center;
+    position: relative;
+    margin: 40px auto;
+    overflow: hidden;
 }
 
-.frames {
+.carrossel {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 20px;
+}
+
+.item {
+    min-width: 300px;
+    flex-shrink: 0;
+    text-align: center;
+    color: white;
+}
+
+.seta {
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 50%;
+    height: fit-content;
+}
+
+.seta.esq {
+  left: 10px;
+}
+
+.seta.dir {
+  right: 10px;
+}
+
+.item iframe {
     display: flex;
     gap: 30px;
-    height: 300px;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
 }
 
 .musicacoluna {
@@ -333,10 +391,20 @@ td {
 }
 
 .albumcard {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.albumcontent {
     width: 100%;
     display: flex;
     height: 12rem;
     margin: 10px;
+}
+
+.albumcard audio {
+    width: 100%;
 }
 
 .albumimg img {
@@ -350,17 +418,22 @@ td {
 .albuminfo {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 50%;
+}
+
+.albumimg {
+    width: 50%;
 }
 
 .albumbotoes {
     display: flex;
     font-size: 2rem;
     padding: 10px 20px;
-    gap: 10px;
+    gap: 5px;
+    flex-wrap: wrap;
 }
 
-.albumbotoes button, form button {
+button {
     border-radius: 10px;
     background-color: var(--botao);
     color: white;
@@ -451,7 +524,7 @@ td {
     gap: 10px;
 }
 
-input, textarea {
+input, textarea, select {
     border: none;
     border-radius: 10px;
     padding: 10px;
@@ -502,16 +575,16 @@ footer {
 }
 
 .footerlogo img {
-    width: 30%;
-}
-
-.footericon {
-    font-size: 2rem;
+    width: 20%;
 }
 
 footer p {
-    font-size: 14px;
+    font-size: 1rem;
     text-align: center;
+}
+
+footer h3 {
+    font-size: 2.5rem;
 }
 
 td a {
@@ -585,7 +658,7 @@ button:hover {
     width: 100%;
 }
 
-.fade-in {
+/* .fade-in {
     opacity: 0;
     transition: opacity 250ms ease-in;
     transform: translateY(100px);
@@ -598,6 +671,26 @@ button:hover {
     transform: translateX(0);
     animation: fade 1s;
 }
+
+.fade-comeco {
+    opacity: 0;
+    transition: opacity 250ms ease-in;
+    transform: translateY(100px);
+    transition: transform 1s;
+}
+
+.fade-comeco.appear {
+    opacity: 1;
+    transform: translateY(0);
+    transform: translateX(0);
+    animation: fade 1s;
+}
+
+.fade-in.disappear {
+    opacity: 0;
+    transform: translateY(100px);
+    animation: fade 1s;
+} */
 
 .msgform div {
     width: 100%;
@@ -659,6 +752,78 @@ td a .icon {
 
 td a .icon:hover {
     transform: scale(1.2);
+}
+
+.spotify {
+    border-radius: 12px;
+}
+
+.quotetxt button {
+    width: 20%;
+}
+
+.animes {
+    display: flex;
+    gap: 15px;
+    width: 80%;
+}
+
+.animes .membroimg {
+    height: 70%;
+}
+
+.animes .membrotxt {
+    height: 30%;
+}
+
+.animes .membro {
+    height: 30rem;
+}
+
+#musicas-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 40px;
+    width: 100%;
+}
+
+.musicas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+.filtros {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.pesquisar button {
+    height: 100%;
+}
+
+.brazil {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 30em;
+}
+
+.brazil img {
+    height: 70%;
+    object-fit: cover;
+}
+
+.brazil div {
+    height: 30%;
+    background-color: var(--botao);
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @media screen and (max-width: 768px) {
