@@ -20,11 +20,17 @@ body {
     z-index: 1;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
     font-weight: 400;
 }
 
-.titulo h1, .titulo h2, .titulo h4 {
+.titulo h1,
+.titulo h2,
+.titulo h4 {
     width: -webkit-fill-available;
 }
 
@@ -89,11 +95,15 @@ nav ul {
     gap: 10px;
 }
 
-nav li, nav a, .socialmedia svg {
+nav li,
+nav a,
+.socialmedia svg {
     transition: transform 0.5s;
 }
 
-nav a:hover, nav li:hover, .socialmedia svg:hover {
+nav a:hover,
+nav li:hover,
+.socialmedia svg:hover {
     color: var(--link);
     fill: var(--link);
     transform: scale(1.1);
@@ -177,9 +187,11 @@ hr {
     0% {
         background-position: 0% 0%;
     }
+
     50% {
         background-position: 100% 100%;
     }
+
     100% {
         background-position: 0% 0%;
     }
@@ -226,7 +238,8 @@ hr {
     transition: transform .2s;
 }
 
-.membroimg img:hover, .showsimg img:hover {
+.membroimg img:hover,
+.showsimg img:hover {
     transform: scale(1.1);
 }
 
@@ -267,66 +280,73 @@ section {
 
 .videos {
     display: flex;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: var(--fundo);
-    width: 100%;
-    gap: 20px;
     align-items: center;
-    position: relative;
-    margin: 40px auto;
+    justify-content: center;
+    gap: 10px;
     overflow: hidden;
+    width: 100%;
+    padding: 20px 0;
+    position: relative;
+    box-sizing: border-box;
 }
 
 .carrossel {
-  display: flex;
-  transition: transform 0.5s ease;
-  gap: 20px;
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .item {
-    min-width: 300px;
-    flex-shrink: 0;
+    flex: 0 0 50%;
+    box-sizing: border-box;
+    padding: 0 10px;
+    max-width: 100%;
     text-align: center;
-    color: white;
-}
-
-.seta {
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 1;
-    border-radius: 50%;
-    height: fit-content;
-}
-
-.seta.esq {
-  left: 10px;
-}
-
-.seta.dir {
-  right: 10px;
 }
 
 .item iframe {
-    display: flex;
-    gap: 30px;
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
-    height: 180px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-width: 100%;
+    border: none;
     border-radius: 8px;
+}
+
+.seta {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 5px;
+}
+
+
+.item.ativo {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.seta.esq {
+    left: 10px;
+}
+
+.seta.dir {
+    right: 10px;
 }
 
 .musicacoluna {
     display: flex;
     width: 100%;
     justify-content: center;
-}
-
-.videos iframe {
-    width: 30%;
-    height: 100%;
 }
 
 .audios {
@@ -339,26 +359,39 @@ td {
     padding: 0.5rem;
 }
 
-.grid a .fa-youtube-play, .albumbotoes .fa-youtube-play, .grid a .fa-spotify, .albumbotoes .fa-spotify, .fa-external-link-square, .fa-ticket {
+.grid a .fa-youtube-play,
+.albumbotoes .fa-youtube-play,
+.grid a .fa-spotify,
+.albumbotoes .fa-spotify,
+.fa-external-link-square,
+.fa-ticket {
     transition: transform 0.5s;
 }
 
 
-.grid a .fa-youtube-play:hover, .albumbotoes .fa-youtube-play:hover, .grid a .fa-spotify:hover, .albumbotoes .fa-spotify:hover, .fa-external-link-square:hover, .fa-ticket:hover {
+.grid a .fa-youtube-play:hover,
+.albumbotoes .fa-youtube-play:hover,
+.grid a .fa-spotify:hover,
+.albumbotoes .fa-spotify:hover,
+.fa-external-link-square:hover,
+.fa-ticket:hover {
     transform: scale(1.2);
 }
 
-.grid a .fa-youtube-play, .albumbotoes .fa-youtube-play {
+.grid a .fa-youtube-play,
+.albumbotoes .fa-youtube-play {
     fill: #B91E1E;
     height: 35px;
     width: 35px;
 }
 
-.grid a .fa-spotify, .albumbotoes .fa-spotify {
+.grid a .fa-spotify,
+.albumbotoes .fa-spotify {
     fill: #05D253;
 }
 
-.grid a .fa-spotify, .grid a .fa-youtube-play {
+.grid a .fa-spotify,
+.grid a .fa-youtube-play {
     font-size: 2.5rem;
 }
 
@@ -378,7 +411,8 @@ td {
     width: 35%;
 }
 
-.album h3, .popular h3{
+.album h3,
+.popular h3 {
     width: 100%;
     text-align: left;
 }
@@ -462,7 +496,8 @@ button {
     list-style-position: inside;
 }
 
-.shows, .msg {
+.shows,
+.msg {
     display: flex;
     justify-content: center;
     width: 70%;
@@ -515,7 +550,8 @@ button {
     color: black;
 }
 
-.msgform, form {
+.msgform,
+form {
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -524,7 +560,9 @@ button {
     gap: 10px;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
     border: none;
     border-radius: 10px;
     padding: 10px;
@@ -554,7 +592,8 @@ form button {
     width: 100%;
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
     font-family: 'Inter';
 }
 
@@ -599,11 +638,6 @@ button {
 
 button:hover {
     background-color: #002C8E;
-    transform: scale(1.1);
-}
-
-.videosmobile {
-    display: none;
 }
 
 .celular {
@@ -706,18 +740,20 @@ button:hover {
     from {
         color: transparent;
     }
+
     to {
         color: white;
     }
 }
 
 ::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 dialog {
     align-self: center;
     justify-self: center;
+    margin: auto;
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -766,10 +802,20 @@ td a .icon:hover {
     display: flex;
     gap: 15px;
     width: 80%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .animes .membroimg {
     height: 70%;
+}
+
+#videos,
+#musicas,
+#shows,
+#mensagem {
+    padding-top: 100px;
 }
 
 .animes .membrotxt {
@@ -778,6 +824,7 @@ td a .icon:hover {
 
 .animes .membro {
     height: 30rem;
+    max-width: 20%;
 }
 
 #musicas-container {
@@ -805,6 +852,14 @@ td a .icon:hover {
     height: 100%;
 }
 
+.pesquisar:first-child {
+    width: 40%;
+}
+
+.pesquisar:first-child input {
+    width: 100%;
+}
+
 .brazil {
     display: flex;
     width: 100%;
@@ -827,144 +882,1246 @@ td a .icon:hover {
 }
 
 @media screen and (max-width: 768px) {
+    .animes .membro {
+        height: 30rem;
+        max-width: 90%;
+    }
+
     .grid {
         padding: 1em;
     }
+
     nav {
         font-size: 1.2rem;
     }
+
     nav ul {
         gap: 10px;
     }
+
     .cover h1 {
         font-size: 4rem;
     }
+
     .cover h2 {
         font-size: 2rem;
     }
-    .quotetxt p{
+
+    .quotetxt p {
         width: 100%;
         font-size: 1rem;
     }
+
     .quoteimg {
         width: 40%;
     }
+
     .titulo h1 {
         font-size: 3rem;
     }
-    .container p{
+
+    .container p {
         font-size: 0.8rem;
     }
+
     .membrolinha {
         flex-direction: column;
     }
+
     .membro {
         width: 80%;
         height: fit-content;
     }
+
     .membrotxt h1 {
         font-size: 3rem;
     }
+
     .membrotxt h2 {
         font-size: 2rem;
     }
-    .videos {
-        display: none;
-    }
-    .videosmobile {
-        display: flex;
-        flex-direction: column;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        background-color: var(--fundo);
-        width: 100%;
-        gap: 20px;
-    }
-    .videosmobile .frames {
-        width: 100%;
-        justify-content: center;
-    }
-    .videosmobile iframe {
-        width: 90%;
-        height: 100%;
-    }
-    .videosmobile h1 {
-        font-size: 2rem;
-    }
+
     .musicacoluna {
         flex-direction: column;
     }
+
     .album {
         width: 100%;
         margin-bottom: 20px;
         padding: 1em;
     }
-    .album h1, .popular h1 {
+
+    .album h1,
+    .popular h1 {
         text-align: center;
         font-size: 2.3rem;
     }
+
     .albumcard {
         justify-content: center;
     }
+
     td {
         font-size: 1.5rem;
     }
+
     table {
         width: 90%;
     }
+
+    td a * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        -ms-high-contrast: none !important;
+    }
+
+    :root {
+        --link: #11AEFC;
+        --fundo: #003BBC;
+        --borda: #022976;
+        --botao: #0547D8;
+    }
+
+    body {
+        font-family: 'Bebas Neue', 'Inter';
+        width: 100%;
+        align-items: center;
+        z-index: 1;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-weight: 400;
+    }
+
+    .titulo h1,
+    .titulo h2,
+    .titulo h4 {
+        width: -webkit-fill-available;
+    }
+
+    h1 {
+        font-size: 8rem;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 6rem;
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 3rem;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+    }
+
+    h5 {
+        font-size: 1.5rem;
+    }
+
+    h6 {
+        font-size: 1.25rem;
+        font-family: 'Inter';
+    }
+
+    nav {
+        background-color: rgba(0, 0, 0, 0.7);
+        justify-content: space-around;
+        display: flex;
+        color: white;
+        align-items: center;
+        font-size: 1.5rem;
+        position: fixed;
+        width: 100%;
+        padding: 10px;
+        backdrop-filter: blur(10px);
+        z-index: 1;
+    }
+
+    nav img {
+        transition: transform 1s;
+    }
+
+    nav img:hover {
+        transform: scale(1.2);
+    }
+
+    nav ul {
+        display: flex;
+        width: 50%;
+        list-style-type: none;
+        justify-content: space-between;
+    }
+
+    .socialmedia {
+        display: flex;
+        gap: 10px;
+    }
+
+    nav li,
+    nav a,
+    .socialmedia svg {
+        transition: transform 0.5s;
+    }
+
+    nav a:hover,
+    nav li:hover,
+    .socialmedia svg:hover {
+        color: var(--link);
+        fill: var(--link);
+        transform: scale(1.1);
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    p {
+        font-family: 'Inter';
+    }
+
+    .cover {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(02, 29, 76, 0.5), rgb(0, 0, 0)), url(../imagens/cover.jpeg);
+        background-position: center;
+        height: 1024px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+
+    .titulo {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .quotecard {
+        display: flex;
+        color: white;
+        align-items: stretch;
+        height: 20rem;
+    }
+
+    .quoteimg {
+        width: 20%;
+    }
+
+    .quoteimg img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .quotetxt {
+        width: 80%;
+        background: linear-gradient(to right, var(--fundo), black);
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .quotetxt p {
+        font-size: 20px;
+        margin: 0;
+    }
+
+    hr {
+        display: inline-block;
+        width: 100%;
+    }
+
+    .container {
+        background-image: linear-gradient(90deg, black, var(--borda), var(--link));
+        background-size: 600% 100%;
+        color: white;
+        text-align: center;
+        padding: 80px 0;
+        animation: gradiente 8s ease infinite;
+    }
+
+    @keyframes gradiente {
+        0% {
+            background-position: 0% 0%;
+        }
+
+        50% {
+            background-position: 100% 100%;
+        }
+
+        100% {
+            background-position: 0% 0%;
+        }
+    }
+
+    .membros {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+        flex-wrap: wrap;
+    }
+
+    .membro {
+        width: 35%;
+        border-radius: 10px;
+        color: white;
+        align-items: stretch;
+        height: 40rem;
+        overflow: hidden;
+    }
+
+    .membrotitle {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .membrotitle div {
+        display: flex;
+        gap: 10px;
+    }
+
+    .membroimg {
+        height: 50%;
+        overflow: hidden;
+    }
+
+    .membroimg img {
+        flex-grow: 1;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        display: block;
+        transition: transform .2s;
+    }
+
+    .membroimg img:hover,
+    .showsimg img:hover {
+        transform: scale(1.1);
+    }
+
+    .membrotxt {
+        background-color: var(--botao);
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        padding: 1.5rem;
+        text-align: left;
+        gap: 10px;
+    }
+
+    .membrotxt p {
+        width: 100% !important;
+        font-size: 0.9rem;
+    }
+
+    .membrotxt button {
+        width: 30%;
+        background-color: var(--borda);
+        align-self: end;
+        justify-self: flex-end;
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 80px;
+        margin-top: 80px;
+    }
+
+    .container p {
+        width: 75%;
+    }
+
+    .videos {
+        display: flex;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background-color: var(--fundo);
+        width: 100%;
+        gap: 20px;
+        align-items: center;
+        position: relative;
+        margin: 40px auto;
+        overflow: hidden;
+        height: 600px;
+    }
+
+    .carrossel {
+        display: flex;
+        transition: transform 0.5s ease;
+        gap: 20px;
+    }
+
+    .item {
+        flex: 0 0 60%;
+        max-width: 60%;
+        opacity: 0.6;
+        flex-shrink: 0;
+        transform: scale(1);
+        transition: all 0.3s ease;
+        text-align: center;
+        color: white;
+    }
+
+    .item.ativo {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    .seta {
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1;
+        border-radius: 50%;
+        height: fit-content;
+    }
+
+    .seta.esq {
+        left: 10px;
+    }
+
+    .seta.dir {
+        right: 10px;
+    }
+
+    .item iframe {
+        display: flex;
+        gap: 30px;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 180px;
+        border-radius: 8px;
+        height: 100%;
+
+    }
+
+    .musicacoluna {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .audios {
+        display: flex;
+    }
+
+    td {
+        text-align: left;
+        vertical-align: middle;
+        padding: 0.5rem;
+    }
+
+    .grid a .fa-youtube-play,
+    .albumbotoes .fa-youtube-play,
+    .grid a .fa-spotify,
+    .albumbotoes .fa-spotify,
+    .fa-external-link-square,
+    .fa-ticket {
+        transition: transform 0.5s;
+    }
+
+
+    .grid a .fa-youtube-play:hover,
+    .albumbotoes .fa-youtube-play:hover,
+    .grid a .fa-spotify:hover,
+    .albumbotoes .fa-spotify:hover,
+    .fa-external-link-square:hover,
+    .fa-ticket:hover {
+        transform: scale(1.2);
+    }
+
+    .grid a .fa-youtube-play,
+    .albumbotoes .fa-youtube-play {
+        fill: #B91E1E;
+        height: 35px;
+        width: 35px;
+    }
+
+    .grid a .fa-spotify,
+    .albumbotoes .fa-spotify {
+        fill: #05D253;
+    }
+
+    .grid a .fa-spotify,
+    .grid a .fa-youtube-play {
+        font-size: 2.5rem;
+    }
+
+    .audiomusica {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .controles {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .album {
+        width: 35%;
+    }
+
+    .album h3,
+    .popular h3 {
+        width: 100%;
+        text-align: left;
+    }
+
+    .albumcards {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: auto;
+    }
+
+    .albumcard {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .albumcontent {
+        width: 100%;
+        display: flex;
+        height: 12rem;
+        margin: 10px;
+    }
+
+    .albumcard audio {
+        width: 100%;
+    }
+
+    .albumimg img {
+        flex-grow: 1;
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .albuminfo {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+
+    .albumimg {
+        width: 50%;
+    }
+
+    .albumbotoes {
+        display: flex;
+        font-size: 2rem;
+        padding: 10px 20px;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+
+    button {
+        border-radius: 10px;
+        background-color: var(--botao);
+        color: white;
+        border: none;
+        padding: 0.5rem;
+    }
+
+    .albumtxt img {
+        font-size: 12px;
+        font-family: 'Inter';
+    }
+
+    .albumtxt {
+        text-align: left;
+        padding: 10px 20px;
+    }
+
+    .albumtxt p {
+        font-size: 14px;
+        gap: 10px;
+    }
+
+    .albumtxt ol {
+        padding-left: 0;
+        margin-left: 0;
+        list-style-position: inside;
+    }
+
+    .shows,
+    .msg {
+        display: flex;
+        justify-content: center;
+        width: 70%;
+        height: 100%;
+    }
+
+    .showsimg {
+        width: 30%;
+        overflow: hidden;
+    }
+
+    .showsimg img {
+        width: 100%;
+        height: 100%;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        object-fit: cover;
+        transition: transform 0.5s;
+    }
+
+    .showstabela {
+        width: 70%;
+        text-align: left;
+    }
+
+    .showstabela table {
+        border-spacing: 0;
+        border: 1px solid var(--borda);
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+    }
+
+    .showstabela th {
+        font-size: 2rem;
+        font-weight: 400;
+        padding: 0.5rem;
+        background-color: var(--fundo);
+        border: 1px solid var(--borda);
+    }
+
+    .showstabela td {
+        font-family: 'Inter';
+        font-size: 1rem;
+        font-weight: 400;
+        border: 1px solid var(--borda);
+        background-color: white;
+        color: black;
+    }
+
+    .msgform,
+    form {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        font-family: 'Inter';
+        height: 100%;
+        gap: 10px;
+    }
+
+    input,
+    textarea,
+    select {
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    form button {
+        width: fit-content;
+        align-self: flex-end;
+        justify-content: flex-end;
+        padding: 1rem;
+        font-size: 16px;
+    }
+
+    .msg {
+        gap: 20px;
+    }
+
+    .msgform {
+        width: 70%;
+    }
+
+    .msgembed {
+        width: 30%;
+    }
+
+    .msgform p {
+        width: 100%;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        font-family: 'Inter';
+    }
+
+    footer {
+        background-image: linear-gradient(to right, #022872, #0543CB);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        gap: 0.5rem;
+    }
+
+    .footerlogo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footerlogo img {
+        width: 20%;
+    }
+
+    footer p {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    footer h3 {
+        font-size: 2.5rem;
+    }
+
     td a {
+        color: black;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    button {
+        transition: transform 0.5s;
+    }
+
+    .celular {
+        display: none;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        z-index: 999;
+        width: 70%;
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        box-shadow: -10px 10px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        transition: transform 0.5s;
+        transform: translateX(100%);
+    }
+
+    .sidebar li:first-child {
+        text-align: end;
+    }
+
+    .sidebar li {
+        width: 100%;
+        text-align: left;
+        padding: 7px 30px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 2.8fr 4fr 1fr 1fr;
+        grid-template-rows: repeat(10 1fr);
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5em;
+    }
+
+    .grid p {
+        font-size: 1.5rem;
+        text-align: left;
+        vertical-align: middle;
+        color: white;
+        padding: 0.2em;
+        font-family: 'Bebas Neue';
+        text-align: left;
+        width: 100%;
+    }
+
+    /* .fade-in {
+        opacity: 0;
+        transition: opacity 250ms ease-in;
+        transform: translateY(100px);
+        transition: transform 1s;
+    }
+    
+    .fade-in.appear {
+        opacity: 1;
+        transform: translateY(0);
+        transform: translateX(0);
+        animation: fade 1s;
+    }
+    
+    .fade-comeco {
+        opacity: 0;
+        transition: opacity 250ms ease-in;
+        transform: translateY(100px);
+        transition: transform 1s;
+    }
+    
+    .fade-comeco.appear {
+        opacity: 1;
+        transform: translateY(0);
+        transform: translateX(0);
+        animation: fade 1s;
+    }
+    
+    .fade-in.disappear {
+        opacity: 0;
+        transform: translateY(100px);
+        animation: fade 1s;
+    } */
+
+    .msgform div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .msgform div button:first-child {
+        background-color: gray;
+    }
+
+    @keyframes fade {
+        from {
+            color: transparent;
+        }
+
+        to {
+            color: white;
+        }
+    }
+
+    ::backdrop {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    dialog {
+        align-self: center;
+        justify-self: center;
+        margin: auto;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 10px;
+        padding: 1em;
+        gap: 1em;
+        z-index: 99;
+        background-color: var(--fundo);
+        color: white;
+    }
+
+    dialog button {
+        border: none;
+        border-radius: inherit;
+        padding: 0.8em;
+        color: inherit;
+        background-color: var(--link);
+    }
+
+    .icon {
+        width: 30px;
+        height: 30px;
+        fill: white;
+    }
+
+    td a .icon {
+        fill: black;
+        transition: transform 0.5s;
+    }
+
+    td a .icon:hover {
+        transform: scale(1.2);
+    }
+
+    .spotify {
+        border-radius: 12px;
+    }
+
+    .quotetxt button {
+        width: 20%;
+    }
+
+    .animes {
+        display: flex;
+        gap: 15px;
+        width: 80%;
+    }
+
+    .animes .membroimg {
+        height: 70%;
+    }
+
+    .animes .membrotxt {
+        height: 30%;
+    }
+
+    .animes .membro {
+        height: 30rem;
+    }
+
+    #musicas-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 40px;
+        width: 100%;
+    }
+
+    .musicas {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+    }
+
+    .filtros {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .pesquisar button {
+        height: 100%;
+    }
+
+    .pesquisar:first-child {
+        width: 40%;
+    }
+
+    .pesquisar:first-child input {
+        width: 100%;
+    }
+
+    .brazil {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        height: 30em;
+    }
+
+    .brazil img {
+        height: 70%;
+        object-fit: cover;
+    }
+
+    .brazil div {
+        height: 30%;
+        background-color: var(--botao);
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @media screen and (max-width: 768px) {
+        .grid {
+            padding: 1em;
+        }
+
+        nav {
+            font-size: 1.2rem;
+        }
+
+        nav ul {
+            gap: 10px;
+        }
+
+        .cover h1 {
+            font-size: 4rem;
+        }
+
+        .cover h2 {
+            font-size: 2rem;
+        }
+
+        .quotetxt p {
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .quoteimg {
+            width: 40%;
+        }
+
+        .titulo h1 {
+            font-size: 3rem;
+        }
+
+        .container p {
+            font-size: 0.8rem;
+        }
+
+        .membrolinha {
+            flex-direction: column;
+        }
+
+        .membro {
+            width: 80%;
+            height: fit-content;
+        }
+
+        .membrotxt h1 {
+            font-size: 3rem;
+        }
+
+        .membrotxt h2 {
+            font-size: 2rem;
+        }
+
+        .musicacoluna {
+            flex-direction: column;
+        }
+
+        .album {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 1em;
+        }
+
+        .album h1,
+        .popular h1 {
+            text-align: center;
+            font-size: 2.3rem;
+        }
+
+        .albumcard {
+            justify-content: center;
+        }
+
+        td {
+            font-size: 1.5rem;
+        }
+
+        table {
+            width: 90%;
+        }
+
+        td a {
+            font-size: 1rem;
+        }
+
+        .popular {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .shows {
+            flex-direction: column;
+            height: 70rem;
+            width: 90%;
+        }
+
+        .showstabela,
+        .showsimg {
+            width: 100%;
+        }
+
+        .showstabela table {
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 0;
+        }
+
+        .showstabela {
+            overflow: auto;
+        }
+
+        .showsimg {
+            height: 20%;
+            overflow: hidden;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .showsimg img {
+            height: 100%;
+            border-top-right-radius: 0;
+        }
+
+        .showstabela td {
+            font-size: 0.8rem;
+        }
+
+        .showstabela th {
+            font-size: 1.5rem;
+        }
+
+        .msg {
+            flex-direction: column;
+        }
+
+        .msgform,
+        .msgembed {
+            width: 100%;
+        }
+
+        .celular {
+            display: flex;
+        }
+
+        .computador {
+            display: none;
+        }
+
+        nav {
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .grid p {
+            font-size: 1.5rem;
+        }
+
+        .grid a .fa-spotify,
+        .grid a .fa-youtube-play {
+            font-size: 1.8rem;
+        }
+
+        .audiomusica {
+            display: flex;
+            align-items: center;
+        }
+
+        .audiomusica audio {
+            height: 40px;
+            width: 100%;
+        }
+
+        .popular h3,
+        .album h3 {
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 3rem;
+        }
+
+        h3 {
+            font-size: 2.5rem;
+        }
+
+        footer h3 {
+            font-size: 2.3rem;
+        }
+
+        .albumimg {
+            width: 30%;
+        }
+
+        .cover img {
+            width: 60%;
+            margin-bottom: 2em;
+        }
+
+        section {
+            margin-top: 0;
+        }
+    }
+
+    @media screen and (max-width: 630px) {
+        nav ul {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    h3 {
         font-size: 1rem;
     }
+
     .popular {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
+
     .shows {
         flex-direction: column;
         height: 70rem;
         width: 90%;
     }
-    .showstabela, .showsimg {
+
+    .showstabela,
+    .showsimg {
         width: 100%;
     }
-    .showstabela table{
+
+    .showstabela table {
         border-top-right-radius: 10px;
         border-bottom-left-radius: 0;
     }
+
     .showstabela {
         overflow: auto;
     }
-    .showsimg{
+
+    .showsimg {
         height: 20%;
         overflow: hidden;
         border-top-right-radius: 0;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
     }
-    .showsimg img{
+
+    .showsimg img {
         height: 100%;
         border-top-right-radius: 0;
     }
+
     .showstabela td {
         font-size: 0.8rem;
     }
+
     .showstabela th {
         font-size: 1.5rem;
     }
+
     .msg {
         flex-direction: column;
     }
-    .msgform, .msgembed {
+
+    .msgform,
+    .msgembed {
         width: 100%;
     }
+
     .celular {
         display: flex;
     }
+
     .computador {
         display: none;
     }
+
     nav {
         justify-content: space-between;
         padding: 10px;
@@ -974,7 +2131,8 @@ td a .icon:hover {
         font-size: 1.5rem;
     }
 
-    .grid a .fa-spotify, .grid a .fa-youtube-play {
+    .grid a .fa-spotify,
+    .grid a .fa-youtube-play {
         font-size: 1.8rem;
     }
 
@@ -982,11 +2140,14 @@ td a .icon:hover {
         display: flex;
         align-items: center;
     }
+
     .audiomusica audio {
         height: 40px;
         width: 100%;
     }
-    .popular h3, .album h3 {
+
+    .popular h3,
+    .album h3 {
         text-align: center;
         font-size: 2.5rem;
     }
@@ -996,15 +2157,17 @@ td a .icon:hover {
     }
 
     h3 {
-        text-align: center;
         font-size: 2.5rem;
     }
+
     footer h3 {
         font-size: 2.3rem;
     }
+
     .albumimg {
         width: 30%;
     }
+
     .cover img {
         width: 60%;
         margin-bottom: 2em;
@@ -1020,5 +2183,75 @@ td a .icon:hover {
         display: flex;
         flex-direction: column;
         text-align: center;
+    }
+
+    .item {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .videos {
+        height: auto;
+        padding: 1em;
+    }
+
+    .carrossel {
+        gap: 10px;
+    }
+
+    .item {
+        flex: 0 0 90%;
+        max-width: 90%;
+        height: auto;
+        transform: scale(1);
+    }
+
+    .item iframe {
+        height: 200px;
+    }
+
+    #musicas-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: none;
+        gap: 20px;
+    }
+
+    .filtros {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .pesquisar:first-child {
+        width: 100%;
+    }
+
+    .seta {
+        font-size: 2rem;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+
+    .item iframe {
+        height: 180px;
+    }
+
+    #musicas-container {
+        grid-template-columns: 1fr;
+    }
+
+    .item {
+        flex: 0 0 90%;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .seta {
+        font-size: 1.5rem;
+        padding: 4px 8px;
     }
 }

@@ -1,6 +1,9 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//   window.scrollTo(0, 0);
-// });
+document.addEventListener("DOMContentLoaded", function () {
+    window.scrollTo(0, 0);
+    criaVideos();
+    renderVideos();
+    renderMusicas(musicas);
+});
 
 //Constantes
 const sidebar = document.querySelector('.sidebar');
@@ -22,8 +25,18 @@ const membroContainer = document.querySelector('#container-membros');
 const tabela = document.querySelector('table');
 const musicasContainer = document.querySelector('#musicas-container');
 const animesContainer = document.querySelector('.animes');
-const videosContainer = document.querySelector('.carrossel')
+const inputPesquisa = document.querySelector('#pesquisar');
+const selectOrdena = document.querySelector('#ordena');
+const btnPesquisar = document.querySelector('#btnPesquisar');
+const btnEsquerda = document.querySelector('.seta.esq');
+const btnDireita = document.querySelector('.seta.dir');
+const carrossel = document.querySelector('.carrossel');
 
+const appearOptions = {
+    threshold: 0.01
+}
+
+let posicao = 0;
 let scrollAntes = window.scrollY;
 let direcaoScroll = 'baixo';
 
@@ -36,9 +49,28 @@ menubtn.addEventListener("click", mostrarMenu);
 fechamodalbtn.addEventListener("click", fechar);
 limpar.addEventListener("click", LimpaForm);
 enviar.addEventListener("click", EnviaForm);
+selectOrdena.addEventListener('change', atualizaMusicas);
+inputPesquisa.addEventListener('input', atualizaMusicas);
 
+btnDireita.addEventListener('click', () => {
+    if (posicao < videoclipes.length - 1) {
+        posicao++;
+        renderVideos();
+    }
+});
+
+btnEsquerda.addEventListener('click', () => {
+    if (posicao > 0) {
+        posicao--;
+        renderVideos();
+    }
+});
 
 //Funções
+
+renderMusicas(musicas);
+renderVideos();
+
 function mostrarMenu() {
     sidebar.style.transform = 'translateX(0)';
 }
@@ -48,13 +80,12 @@ function fecharMenu() {
 }
 
 function EnviaForm() {
-    inputs.forEach(input => {
-        if (input.value != '' && textarea.value != '') {
-            mensagem.innerHTML = 'Formulário enviado com sucesso!';
-        } else {
-            mensagem.innerHTML = 'Preencha o formulário antes de enviar...';
-        }
-    })
+    const preenchido = [...inputs].every(input => input.value.trim() !== '') && input.value.trim() !== '';
+    if (preenchido) {
+        mensagem.innerHTML = 'Formulário enviado com sucesso!';
+    } else {
+        mensagem.innerHTML = 'Preencha o formulário antes de enviar...';
+    }
     dialog.showModal();
     dialog.style.display = 'flex';
 }
@@ -97,11 +128,10 @@ membros.forEach(membro => {
         </div>
         <h4>${membro.papel}</h4>
         <p>${membro.descricao}</p>
-        <button> Veja mais </button>
     </div>`
 
     membroContainer.appendChild(membrodiv);
-})  
+})
 
 shows.forEach(show => {
     const tabelarow = document.createElement('tr');
@@ -126,45 +156,7 @@ shows.forEach(show => {
     </td>`
 
     tabela.appendChild(tabelarow);
-}) 
-
-musicas.forEach(musica => {
-    const musicacard = document.createElement('div');
-    musicacard.classList.add('albumcard')
-
-    musicacard.innerHTML = `
-    <div class="albumcontent">
-    <div class="albumimg">
-        <img src="imagens/${musica.imagem}" alt="${musica.alt}">
-    </div>
-    <div class="albuminfo">
-        <div class="albumtxt">
-            <h6>${musica.nome}</h6>
-            <p>${musica.data}</p>
-            <p>${musica.visualizacoes}</p>
-        </div>
-        <div class="albumbotoes">
-            <a href="${musica.youtube}" target="_blank">
-                <svg class="icon fa-youtube-play">
-                    <use xlink:href="#youtube"></use>
-                </svg>
-            </a>
-            <a href="${musica.spotify}"
-                target="_blank">
-                <svg class="icon fa-spotify">
-                    <use xlink:href="#spotify"></use>
-                </svg>
-            </a>
-            <a href="${musica.comprar}" target="_blank">
-                <button>Comprar</button>
-            </a>
-        </div>
-    </div>
-    </div>
-    <audio src="audio/${musica.audio}.mp3" controls></audio>`
-
-    musicasContainer.appendChild(musicacard);
-})  
+})
 
 animes.forEach(anime => {
     const animecard = document.createElement('div');
@@ -182,50 +174,137 @@ animes.forEach(anime => {
     </div>`
 
     animesContainer.appendChild(animecard);
-})  
-
-
-videoclipes.forEach(video => {
-    const item = document.createElement('div');
-    item.classList.add('item')
-
-    item.innerHTML = `
-    <div class="item">
-        <iframe src="https://www.youtube.com/embed/${video.embed}" frameborder="0"></iframe>
-        <h4>${video.titulo}</h4>
-    </div>`
-
-    videosContainer.appendChild(item);
 })
 
-const carrossel = document.querySelector('.videos');
-  const btnEsquerda = document.querySelector('.seta.esq');
-  const btnDireita = document.querySelector('.seta.dir');
+function formataVisualizacao(valor) {
+    return Number(valor.replace(/\./g, ''));
+}
 
-  let scroll = 0;
-  const passo = 320; // largura dos vídeos + espaçamento
+function formataData(dataStr) {
+    const [dia, mes, ano] = dataStr.split('/');
+    return new Date(`${ano}-${mes}-${dia}`).getTime();
+}
 
-  btnDireita.addEventListener('click', () => {
-    const maxScroll = carrossel.scrollWidth - carrossel.clientWidth;
-    scroll = Math.min(scroll + passo, maxScroll);
-    carrossel.style.transform = `translateX(-${scroll}px)`;
-  });
+function renderMusicas(lista) {
+    musicasContainer.innerHTML = '';
+    lista.forEach(musica => {
+        const musicacard = document.createElement('div');
+        musicacard.classList.add('albumcard')
 
-  btnEsquerda.addEventListener('click', () => {
-    scroll = Math.max(scroll - passo, 0);
-    carrossel.style.transform = `translateX(-${scroll}px)`;
-});
+        musicacard.innerHTML = `
+        <div class="albumcontent">
+        <div class="albumimg">
+            <img src="imagens/${musica.imagem}" alt="${musica.alt}">
+        </div>
+        <div class="albuminfo">
+            <div class="albumtxt">
+                <h6>${musica.nome}</h6>
+                <p>${musica.data}</p>
+                <p>${musica.visualizacoes}</p>
+            </div>
+            <div class="albumbotoes">
+                <a href="${musica.youtube}" target="_blank">
+                    <svg class="icon fa-youtube-play">
+                        <use xlink:href="#youtube"></use>
+                    </svg>
+                </a>
+                <a href="${musica.spotify}"
+                    target="_blank">
+                    <svg class="icon fa-spotify">
+                        <use xlink:href="#spotify"></use>
+                    </svg>
+                </a>
+                <a href="${musica.comprar}" target="_blank">
+                    <button>Comprar</button>
+                </a>
+            </div>
+        </div>
+        </div>
+        <audio src="audio/${musica.audio}.mp3" controls></audio>`
+
+        musicasContainer.appendChild(musicacard);
+    })
+}
+
+function atualizaMusicas() {
+    const busca = inputPesquisa.value.toLowerCase();
+    const ordem = selectOrdena.value;
+
+    let listaFiltrada;
+
+    if (busca === '') {
+        listaFiltrada = [...musicas];
+    } else {
+        listaFiltrada = musicas.filter(m =>
+            m.nome.toLowerCase().includes(busca)
+        );
+    }
+
+    switch (ordem) {
+        case 'popular':
+            listaFiltrada.sort((a, b) =>
+                formataVisualizacao(b.visualizacoes) - formataVisualizacao(a.visualizacoes)
+            );
+            break;
+        case 'menospopular':
+            listaFiltrada.sort((a, b) =>
+                formataVisualizacao(a.visualizacoes) - formataVisualizacao(b.visualizacoes)
+            );
+            break;
+        case 'recente':
+            listaFiltrada.sort((a, b) =>
+                formataData(b.data) - formataData(a.data)
+            );
+            break;
+        case 'antigo':
+            listaFiltrada.sort((a, b) =>
+                formataData(a.data) - formataData(b.data)
+            );
+            break;
+    }
+
+    renderMusicas(listaFiltrada);
+}
+
+function criaVideos() {
+    carrossel.innerHTML = '';
+    videoclipes.forEach((video, index) => {
+        const item = document.createElement('div');
+        item.classList.add('item');
+        if (index === posicao) item.classList.add('ativo');
+
+        item.innerHTML = `
+            <iframe src="https://www.youtube.com/embed/${video.embed}" allowfullscreen></iframe>
+            <h4>${video.titulo}</h4>
+        `;
+
+        carrossel.appendChild(item);
+    });
+}
+
+function renderVideos() {
+    const items = carrossel.querySelectorAll('.item');
+    items.forEach((item, index) => {
+        item.classList.toggle('ativo', index === posicao);
+    });
+
+    const ativo = items[posicao];
+    if (!ativo) return;
+
+    const offsetLeft = ativo.offsetLeft;
+    const carrosselWidth = carrossel.offsetWidth;
+    const itemWidth = ativo.offsetWidth;
+    const scroll = offsetLeft - (carrosselWidth - itemWidth) / 2;
+
+    carrossel.style.transform = `translateX(${-scroll}px)`;
+}
 
 
-// const appearOptions = { 
-//     threshold: 0.01 
-// }
-
-// window.addEventListener('scroll', () => {
-//     const scrollAgora = window.scrollY;
-//     direcaoScroll = (scrollAgora > scrollAntes) ? 'baixo' : 'cima';
-//     scrollAntes = scrollAgora;
-// })
+window.addEventListener('scroll', () => {
+    const scrollAgora = window.scrollY;
+    direcaoScroll = (scrollAgora > scrollAntes) ? 'baixo' : 'cima';
+    scrollAntes = scrollAgora;
+})
 
 // const appearOnScroll = new IntersectionObserver(function (entries) {
 //     entries.forEach(entry => {
@@ -259,27 +338,3 @@ const carrossel = document.querySelector('.videos');
 // faderscomeco.forEach(comeco => {
 //     appearComeco.observe(comeco);
 // })
-
-function carrossel(par_ind) {
-    embedcard.setAttribute('src', 'https://www.youtube.com/embed/' + videoclipes[par_ind]['embed'])
-    titulocard.setAttribute('alt', videoclipes[par_ind]['titulo'])
-    titulocard.innerHTML = videoclipes[par_ind]['titulo']
-}
-
-// carrossel(0)
-
-function proximaMusica() { 
-    num_card++
-    if (num_card == videoclipes.length) {
-        num_card = 0
-    }
-    carrossel(num_card)
-}
-
-function musicaAnterior() {
-    num_card--
-    if (num_card < 0) {
-        num_card = (videoclipes.length - 1)
-    }
-    carrossel(num_card)
-}
