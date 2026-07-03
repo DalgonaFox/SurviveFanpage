@@ -6,13 +6,15 @@
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
 </p>
 
-Este projeto é uma **Fanpage (Landing Page)** dedicada à banda de rock japonesa *Survive Said The Prophet* (SABAPURO), muito conhecida por suas aberturas marcantes em animes de sucesso, como *Vinland Saga* e *Banana Fish*. 
+Este projeto é uma **Fanpage (Landing Page)** dedicada à banda de rock japonesa *Survive Said The Prophet* (SABAPURO), projeto que eu realizei na faculdade para a matéria de Desenvolvimento Front-End.
 
-A página foi construída focando em uma experiência interativa para os fãs, utilizando **HTML5 semântico**, estilização com **CSS3** (incluindo animações e design responsivo) e manipulação do DOM através de **JavaScript** puro (Vanilla JS).
+A página pode ser encontrada online [aqui](https://survive-said-the-prophet-fanpage.onrender.com).
+
+A página foi construída focando em uma experiência interativa para os usuário, utilizando HTML5 semântico, estilização com CSS3 (incluindo animações e design responsivo) e manipulação do DOM através de JavaScript puro (Vanilla JS).
 
 ## Funcionalidades
 
-A página é uma *Single Page Application* (SPA) estática e rica em detalhes estruturais e visuais. Os principais recursos incluem:
+A página é uma *Single Page Application* (SPA) ou "Landing Page" estática que inclui os seguintes recursos:
 
 * **Design Responsivo:** Menus de navegação e layout que se adaptam automaticamente a telas de computadores e celulares (mobile-first).
 * **Animações e Efeitos:** Elementos visuais que aparecem suavemente na tela (classes de *fade-in*) e navegação fluida (*smooth scroll*) para as seções da página.
@@ -23,7 +25,7 @@ A página é uma *Single Page Application* (SPA) estática e rica em detalhes es
 
 ## Estrutura
 
-Além do visual, a página foi construída com foco em **Acessibilidade e SEO**:
+Além do visual, a página foi construída com foco em Acessibilidade e SEO:
 
 * Utilização massiva de tags semânticas (como `<header>`, `<nav>`, `<main>`, `<section>`, `<dialog>`).
 * Ícones renderizados diretamente via `<svg>` com a tag `<symbol>`, garantindo alta performance e carregamento super rápido da página.
