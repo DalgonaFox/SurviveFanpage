@@ -22,9 +22,3 @@ A página é uma *Single Page Application* (SPA) estática que inclui os seguint
 * Filtro e Busca Dinâmica;
 * Integração com APIs Externas;
 * Modais Nativos.
-
-## Contato
-Caso tenha dúvidas ou sugestões, entre em contato:
-- Email: mila.olisantos@gmail.com
-- GitHub: [DalgonaFox](https://github.com/DalgonaFox)
-- LinkedIn: [Milena Oliveira Santos](https://www.linkedin.com/in/milena-oliveira-santos/).
